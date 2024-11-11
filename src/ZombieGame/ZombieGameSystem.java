@@ -15,8 +15,10 @@ public class ZombieGameSystem {
 	private static Boss boss = new Boss();
 
 	private boolean isrun = true;
+	
 	private int potionCount = 3;
-
+	private int zombieCount = 0;
+	
 	private void ZombieGameSystem() {
 
 	}
@@ -63,14 +65,33 @@ public class ZombieGameSystem {
 		}
 
 		if (select == MOVING) {
-			human.moving(human);
+			human.moving(human); 
+			actionMenu();
 		} else if (select == EXIT) {
 			System.out.println("좀비게임 종료 합니다!");
 			isrun = false;
 		}
 	}
 
-	private int randomNumber() {
+	private void actionMenu() {
+		int actionNumber = actionRandomNumber();
+		if(actionNumber >= 1 && actionNumber <= 3) {
+			System.out.println("아무일도 없었다.");
+		} else if(actionNumber == 4) {
+			System.out.println("좀비를 만났다!!");
+			fighting();
+			zombieCount++;
+		} else if(actionNumber == 5) {
+			System.out.println("포션을 얻었다!!!");
+			potionCount++;
+		}
+	}
+	
+	private void fighting()	{
+		
+	}
+	
+	private int actionRandomNumber() {
 		int ranNum = ran.nextInt(5) + 1; // 1 2 3 4 5
 											// 1~3 이동 | 4 좀비 | 5 포션
 
