@@ -11,4 +11,9 @@ abstract class Zombie {
 		this.name = name;
 	}
 	
+	@Override
+	public String toString() {
+		String massgae = String.format("[%s] | [HP : %d/%d]", name, hp, MAX_HP);
+		return massgae;
+	}
 }
