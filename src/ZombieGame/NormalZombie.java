@@ -1,5 +1,9 @@
 package ZombieGame;
 
-public class NormalZombie {
+public class NormalZombie extends Zombie{
+
+	NormalZombie() {
+		super("일반좀비", 100);
+	}
 
 }
