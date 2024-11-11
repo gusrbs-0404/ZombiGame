@@ -1,8 +1,8 @@
 package ZombieGame;
 
-public class NormalZombie extends Unit{
+public class Normal extends Unit{
 
-	NormalZombie() {
+	Normal() {
 		super("일반좀비", 100);
 	}
 
