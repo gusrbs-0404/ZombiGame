@@ -5,7 +5,7 @@ public class Human extends Unit implements Attack, Potion, Moving {
 	private int totalMoving = 0;
 
 	Human() {
-		super("길동이", 150);
+		super("길동이", 200);
 	}
 
 	@Override
