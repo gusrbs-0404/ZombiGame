@@ -16,12 +16,12 @@ public class Human extends Unit  implements Attack, Potion{
 		if (human instanceof Human) {
 			Human target = (Human) human;
 			
-			int ranNum = ZombieGameSystem.ranHp();
+			int ranHp = ZombieGameSystem.ranHp();
 			
 			while (target.hp < target.MAX_HP) {
 				System.out.println(target + "|| [HP] 회복중");
 				target.hp++;
-				ranNum --;
+				ranHp --;
 				try {
 					Thread.sleep(300);
 				} catch (Exception e) {

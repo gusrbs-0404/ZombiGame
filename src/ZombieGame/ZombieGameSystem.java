@@ -21,6 +21,12 @@ public class ZombieGameSystem {
 	}
 	
 	public static int ranHp() {
+		int ranHp = ran.nextInt(human.MAX_HP)/3;
+		
+		return ranHp;
+	}
+	
+	public static int ranAttack() {
 		int ranNum = ran.nextInt(human.MAX_HP)/3;
 		
 		return ranNum;
