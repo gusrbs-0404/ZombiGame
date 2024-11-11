@@ -1,6 +1,6 @@
 package ZombieGame;
 
-public class Human extends Unit  implements Attack, Potion{
+public class Human extends Unit implements Attack, Potion {
 
 	Human() {
 		super("길동이", 150);
@@ -9,11 +9,11 @@ public class Human extends Unit  implements Attack, Potion{
 	@Override
 	public void attack(Unit unit) {
 		int attack = ZombieGameSystem.ranAttack();
-		String masg = String.format("%s가 %s에게 %d만큼 공격했다!!!!", name, unit.name,attack);
+		String masg = String.format("%s가 %s에게 %d만큼 공격했다!!!!", name, unit.name, attack);
 		System.out.println(masg);
-		
+
 		unit.hp -= attack;
-		
+
 		System.out.println("깡!!!!");
 	}
 
@@ -21,19 +21,19 @@ public class Human extends Unit  implements Attack, Potion{
 	public void potion(Human human) {
 		if (human instanceof Human) {
 			Human target = (Human) human;
-			
+
 			int ranHp = ZombieGameSystem.ranHp();
-			
-			while (target.hp < target.MAX_HP) {
+
+			System.out.printf("포션을 먹었다! %d만큼 획복한다!!\n", ranHp);
+			while (ranHp > 0 && target.hp < target.MAX_HP) {
 				System.out.println(target + "|| [HP] 회복중");
 				target.hp++;
-				ranHp --;
+				ranHp--;
 				try {
 					Thread.sleep(300);
 				} catch (Exception e) {
 				}
 			}
-
 
 			System.out.println("<<< 회복 완료 >>> ");
 		}
