@@ -85,13 +85,14 @@ public class ZombieGameSystem {
 			System.out.println("좀비를 만났다!!");
 			fighting();
 		} else if (actionNumber == 5) {
-			System.out.println("포션을 얻었다!!!");
 			potionCount++;
+			System.out.printf("포션을 얻었다!!!\n총 포션 개수 : %d\n", potionCount);
 		}
 	}
 
 	private void fighting() {
-		while (true) {
+		boolean isFighting = true;
+		while (isFighting) {
 			System.out.println("1.공격한다.");
 			System.out.println("2.포션먹는다.");
 			System.out.println("3.도망간다(hp-50)");
@@ -99,7 +100,7 @@ public class ZombieGameSystem {
 			int select = inputNumber("메뉴 선택");
 
 			if (select == ATTACK) {
-				attack();
+				isFighting = attack();
 			} else if (select == POTION) {
 				potion();
 			} else if (select == RUNAWAY) {
@@ -110,9 +111,30 @@ public class ZombieGameSystem {
 		// zombieCount++;
 	}
 
-	private void attack() {
-		// TODO Auto-generated method stub
+	private boolean attack() {
+		human.attack(normal);
+		System.out.println(normal);
 
+		normal.attack(human);
+		System.out.println(human);
+
+		if (human.hp < 0 || human.hp == 0) {
+			System.out.println("길동이가 죽었다!\n게임 종료!");
+
+			isrun = false;
+
+			return false;
+		}
+		if (normal.hp < 0 || normal.hp == 0) {
+			System.out.println("길동이가 좀비를 죽였다!");
+
+			potionCount++;
+			System.out.printf("포션을 1개를 얻었다!!!\n총 포션 개수 : %d\n", potionCount);
+
+			return false;
+		}
+
+		return true;
 	}
 
 	private void potion() {
