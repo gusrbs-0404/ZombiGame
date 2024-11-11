@@ -1,5 +1,5 @@
 package ZombieGame;
 
-interface  Moving {
+interface Moving {
 	public void moving(Human human);
 }
