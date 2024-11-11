@@ -3,11 +3,17 @@ package ZombieGame;
 public class Human extends Unit  implements Attack, Potion{
 
 	Human() {
-		super("길동", 150);
+		super("길동이", 150);
 	}
 
 	@Override
 	public void attack(Unit unit) {
+		int attack = ZombieGameSystem.ranAttack();
+		String masg = String.format("%s가 %s에게 %d만큼 공격했다!!!!", name, unit.name,attack);
+		System.out.println(masg);
+		
+		unit.hp -= attack;
+		
 		System.out.println("깡!!!!");
 	}
 
