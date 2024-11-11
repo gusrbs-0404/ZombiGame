@@ -7,6 +7,10 @@ public class ZombieGameSystem {
 	private final int MOVING = 1;
 	private final int EXIT = 2;
 
+	private final int ATTACK = 1;
+	private final int POTION = 2;
+	private final int RUNAWAY = 3;
+
 	private static Scanner scan = new Scanner(System.in);
 	private static Random ran = new Random();
 
@@ -15,10 +19,10 @@ public class ZombieGameSystem {
 	private static Boss boss = new Boss();
 
 	private boolean isrun = true;
-	
+
 	private int potionCount = 3;
 	private int zombieCount = 0;
-	
+
 	private void ZombieGameSystem() {
 
 	}
@@ -65,7 +69,7 @@ public class ZombieGameSystem {
 		}
 
 		if (select == MOVING) {
-			human.moving(human); 
+			human.moving(human);
 			actionMenu();
 		} else if (select == EXIT) {
 			System.out.println("좀비게임 종료 합니다!");
@@ -75,22 +79,52 @@ public class ZombieGameSystem {
 
 	private void actionMenu() {
 		int actionNumber = actionRandomNumber();
-		if(actionNumber >= 1 && actionNumber <= 3) {
+		if (actionNumber >= 1 && actionNumber <= 3) {
 			System.out.println("아무일도 없었다.");
-		} else if(actionNumber == 4) {
+		} else if (actionNumber == 4) {
 			System.out.println("좀비를 만났다!!");
 			fighting();
-			zombieCount++;
-		} else if(actionNumber == 5) {
+		} else if (actionNumber == 5) {
 			System.out.println("포션을 얻었다!!!");
 			potionCount++;
 		}
 	}
-	
-	private void fighting()	{
-		
+
+	private void fighting() {
+		while (true) {
+			System.out.println("1.공격한다.");
+			System.out.println("2.포션먹는다.");
+			System.out.println("3.도망간다(hp-50)");
+
+			int select = inputNumber("메뉴 선택");
+
+			if (select == ATTACK) {
+				attack();
+			} else if (select == POTION) {
+				potion();
+			} else if (select == RUNAWAY) {
+				runaway();
+			}
+
+		}
+		// zombieCount++;
 	}
-	
+
+	private void attack() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void potion() {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void runaway() {
+		// TODO Auto-generated method stub
+
+	}
+
 	private int actionRandomNumber() {
 		int ranNum = ran.nextInt(5) + 1; // 1 2 3 4 5
 											// 1~3 이동 | 4 좀비 | 5 포션
