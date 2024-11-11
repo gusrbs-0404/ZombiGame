@@ -1,8 +1,8 @@
 package ZombieGame;
 
-public class BossZombie extends Unit{
+public class Boss extends Unit{
 
-	BossZombie() {
+	Boss() {
 		super("보스 좀비", 300);
 	}
 
