@@ -1,6 +1,8 @@
 package ZombieGame;
 
-public class Human extends Unit implements Attack, Potion {
+public class Human extends Unit implements Attack, Potion, Moving {
+
+	private int totalMoving = 0;
 
 	Human() {
 		super("길동이", 150);
@@ -37,6 +39,15 @@ public class Human extends Unit implements Attack, Potion {
 
 			System.out.println("<<< 회복 완료 >>> ");
 		}
+	}
+
+	@Override
+	public void moving(Human human) {
+		int moving = ZombieGameSystem.ranMoving();
+		totalMoving += moving;
+
+		String masg = String.format("%s가 %d만큼 이동했다.\n총 이동거리 : %d", name, moving, totalMoving);
+		System.out.println(masg);
 	}
 
 }
