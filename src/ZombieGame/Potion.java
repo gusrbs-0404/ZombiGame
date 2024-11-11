@@ -1,5 +1,5 @@
 package ZombieGame;
 
 interface Potion {
-	public void potion(Unit unit);
+	public void potion(Human human);
 }
