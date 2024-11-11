@@ -1,5 +1,5 @@
 package ZombieGame;
 
 interface Attack {
-	public void attack(ZombieAndHuman zombieAndHuman);
+	public void attack(Unit unit);
 }
