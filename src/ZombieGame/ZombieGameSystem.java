@@ -73,6 +73,10 @@ public class ZombieGameSystem {
 			human.moving(human);
 			actionMenu();
 		} else if (select == POTION) {
+			if (human.hp == human.MAX_HP) {
+				System.out.println("풀피라 포션을 먹을수 없다!");
+				return;
+			}
 			human.potion(human);
 		} else if (select == EXIT) {
 			System.out.println("좀비게임 종료 합니다!");
@@ -165,6 +169,11 @@ public class ZombieGameSystem {
 	}
 
 	private void potion() {
+		if (human.hp == human.MAX_HP) {
+			System.out.println("풀피라 포션을 먹을수 없다!");
+			return;
+		}
+
 		human.potion(human);
 	}
 
