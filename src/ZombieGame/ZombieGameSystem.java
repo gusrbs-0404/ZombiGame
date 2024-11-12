@@ -82,7 +82,6 @@ public class ZombieGameSystem {
 		if (actionNumber >= 1 && actionNumber <= 3) {
 			System.out.println("아무일도 없었다.");
 		} else if (actionNumber == 4) {
-			System.out.println("좀비를 만났다!!");
 			fighting();
 		} else if (actionNumber == 5) {
 			potionCount++;
@@ -98,6 +97,7 @@ public class ZombieGameSystem {
 	}
 
 	private void fighting() {
+		System.out.println("좀비를 만났다!!");
 		boolean isFighting = true;
 		while (isFighting) {
 			System.out.println("1.공격한다.");
@@ -120,19 +120,29 @@ public class ZombieGameSystem {
 
 	private boolean attack() {
 		human.attack(normal);
+
+		if (normal.hp < 0) {
+			normal.hp = 0;
+		}
+
 		System.out.println(normal);
 
 		normal.attack(human);
+
+		if (human.hp < 0) {
+			human.hp = 0;
+		}
+
 		System.out.println(human);
 
-		if (human.hp < 0 || human.hp == 0) {
+		if (human.hp == 0) {
 			System.out.println("길동이가 죽었다!\n게임 종료!");
 
 			isrun = false;
 
 			return false;
 		}
-		if (normal.hp < 0 || normal.hp == 0) {
+		if (normal.hp == 0) {
 			System.out.println("길동이가 좀비를 죽였다!");
 
 			potionCount++;
