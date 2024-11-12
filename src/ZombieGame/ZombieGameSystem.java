@@ -213,7 +213,7 @@ public class ZombieGameSystem {
 		return true;
 	}
 
-	private void potion() {
+	private void potion() { 
 		if (human.hp == human.MAX_HP) {
 			System.out.println("풀피라 포션을 먹을수 없다!");
 			return;
