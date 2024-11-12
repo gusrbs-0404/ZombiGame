@@ -28,7 +28,7 @@ public class Normal extends Unit implements Upgrade, Zombie {
 			if (zombiecount >= 1) {
 				String masg = String.format("%s의 [최대 체력 : 10 | 공격력 : 5] 증가 합니다!", name);
 				System.out.println(masg);
-				ZombieGameSystem.normalUpgradeHp += 10;
+				ZombieGameSystem.normalUpgradeHp += 30;
 				ZombieGameSystem.normalUpgradeAttack += 5;
 			}
 		}
