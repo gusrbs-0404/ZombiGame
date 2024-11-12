@@ -11,6 +11,11 @@ public class ZombieGameSystem {
 	private final int ATTACK = 1;
 	private final int RUNAWAY = 3;
 
+	private final int JOINGMOVING = 3;
+	private final int FIGHTING = 4;
+	private final int GETPOTION = 5;
+	private final int GETTRAP = 6;
+
 	private static Scanner scan = new Scanner(System.in);
 	private static Random ran = new Random();
 
@@ -53,6 +58,7 @@ public class ZombieGameSystem {
 
 	public void run() {
 		while (isrun) {
+			humanUpgrade();
 			menu();
 
 		}
@@ -64,7 +70,7 @@ public class ZombieGameSystem {
 		System.out.println("3.종료하기");
 		int select = inputNumber("메뉴 선택");
 
-		if (select < 1 || select > 3) {
+		if (select < MOVING || select > EXIT) {
 			System.out.println("메뉴 잘못입력했습니다!");
 			return;
 		}
@@ -86,9 +92,9 @@ public class ZombieGameSystem {
 
 	private void actionMenu() {
 		int actionNumber = actionRandomNumber();
-		if (actionNumber >= 1 && actionNumber <= 3) {
+		if (actionNumber >= MOVING && actionNumber <= JOINGMOVING) {
 			System.out.println("아무일도 없었다.");
-		} else if (actionNumber == 4) {
+		} else if (actionNumber == FIGHTING) {
 			if (zombieCount == 3) {
 				boss = new Boss();
 				fighting(boss);
@@ -98,9 +104,9 @@ public class ZombieGameSystem {
 				fighting(normal);
 				zombieCount++;
 			}
-		} else if (actionNumber == 5) {
+		} else if (actionNumber == GETPOTION) {
 			plusPotion();
-		} else if (actionNumber == 6) {
+		} else if (actionNumber == GETTRAP) {
 			trap();
 		}
 	}
@@ -143,8 +149,8 @@ public class ZombieGameSystem {
 	private boolean attack(Unit unit) {
 		human.attack(unit);
 
-		if (normal.hp < 0) {
-			normal.hp = 0;
+		if (unit.hp < 0) {
+			unit.hp = 0;
 		}
 
 		System.out.println(unit);
@@ -164,8 +170,8 @@ public class ZombieGameSystem {
 
 			return false;
 		}
-		if (normal.hp == 0) {
-			System.out.println("길동이가 좀비를 죽였다!");
+		if (unit.hp == 0) {
+			System.out.printf("길동이가 %s를 죽였다!\n", unit.name);
 
 			potionCount++;
 			System.out.printf("포션을 1개를 얻었다!!!\n총 포션 개수 : %d\n", potionCount);
@@ -198,6 +204,10 @@ public class ZombieGameSystem {
 			return true;
 		}
 
+	}
+
+	private void humanUpgrade() {
+		human.upgrade(human);
 	}
 
 	private int actionRandomNumber() {
