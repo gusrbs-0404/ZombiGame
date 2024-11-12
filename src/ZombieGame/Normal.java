@@ -16,6 +16,12 @@ public class Normal extends Unit implements Upgrade, Zombie {
 
 		System.out.println("와그작!!");
 	}
+	
+	@Override
+	public boolean critical() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 	@Override
 	public void upgrade(Unit unit) {

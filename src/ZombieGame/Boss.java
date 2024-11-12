@@ -17,6 +17,12 @@ public class Boss extends Unit implements Upgrade, Zombie {
 	}
 
 	@Override
+	public boolean critical() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	@Override
 	public void upgrade(Unit unit) {
 		if (unit instanceof Boss) {
 			Boss target = (Boss) unit;
