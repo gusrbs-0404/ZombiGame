@@ -64,7 +64,7 @@ public class ZombieGameSystem {
 		System.out.println("3.종료하기");
 		int select = inputNumber("메뉴 선택");
 
-		if (select < 1 || select > 2) {
+		if (select < 1 || select > 3) {
 			System.out.println("메뉴 잘못입력했습니다!");
 			return;
 		}
