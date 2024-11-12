@@ -63,6 +63,11 @@ public class ZombieGameSystem {
 		return ranMoving;
 	}
 
+	public static int probability() {
+		int ranprobability = ran.nextInt(15);
+		return ranprobability;
+	}
+
 	public void run() {
 		while (isrun) {
 			humanUpgrade();
