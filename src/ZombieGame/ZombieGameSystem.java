@@ -211,6 +211,11 @@ public class ZombieGameSystem {
 			return;
 		}
 
+		if (potionCount == 0) {
+			System.out.println("가지고 있는 포션이 없다...");
+			return;
+		}
+
 		human.potion(human);
 	}
 
