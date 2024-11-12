@@ -15,8 +15,8 @@ public class ZombieGameSystem {
 	private static Random ran = new Random();
 
 	private static Human human = new Human();
-	private static Normal normal = new Normal();
-	private static Boss boss = new Boss();
+	private static Normal normal;
+	private static Boss boss;
 
 	private boolean isrun = true;
 
@@ -112,6 +112,7 @@ public class ZombieGameSystem {
 
 	private void fighting() {
 		System.out.println("좀비를 만났다!!");
+		normal = new Normal();
 		boolean isFighting = true;
 		while (isFighting) {
 			System.out.println("1.공격한다.");
@@ -129,7 +130,8 @@ public class ZombieGameSystem {
 			}
 
 		}
-		// zombieCount++;
+		zombieCount++;
+		System.out.println(zombieCount);
 	}
 
 	private boolean attack() {
@@ -189,6 +191,10 @@ public class ZombieGameSystem {
 			System.out.println("hp가 부족해서 도망칠 수 없다!");
 			return true;
 		}
+
+	}
+
+	private void joinBoss() {
 
 	}
 
