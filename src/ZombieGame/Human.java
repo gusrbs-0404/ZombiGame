@@ -54,7 +54,6 @@ public class Human extends Unit implements Potion, Moving, Upgrade {
 		if (unit instanceof Human) {
 			Human target = (Human) unit;
 			if (totalMoving / 10 == upgradeCount) {
-				System.out.println(totalMoving / 10);
 				String masg = String.format("%s의 [최대 체력 : 10 | 공격력 : 5] 증가 합니다!", name);
 				System.out.println(masg);
 
