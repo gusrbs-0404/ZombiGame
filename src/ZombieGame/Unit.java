@@ -1,7 +1,7 @@
 package ZombieGame;
 
 abstract class Unit implements Attack {
-	protected final int MAX_HP;
+	protected int MAX_HP;
 	protected int hp;
 	protected String name;
 
