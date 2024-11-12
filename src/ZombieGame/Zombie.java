@@ -1,5 +1,4 @@
 package ZombieGame;
 
 interface Zombie {
-
 }
