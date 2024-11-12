@@ -84,13 +84,17 @@ public class ZombieGameSystem {
 		} else if (actionNumber == 4) {
 			fighting();
 		} else if (actionNumber == 5) {
-			potionCount++;
-			System.out.printf("포션을 얻었다!!!\n총 포션 개수 : %d\n", potionCount);
+			plusPotion();
 		} else if (actionNumber == 6) {
 			trap();
 		}
 	}
-	
+
+	private void plusPotion() {
+		potionCount++;
+		System.out.printf("포션을 얻었다!!!\n총 포션 개수 : %d\n", potionCount);
+	}
+
 	private void trap() {
 		System.out.println("함정에 걸렸다!");
 		int hp = ranAttack();
