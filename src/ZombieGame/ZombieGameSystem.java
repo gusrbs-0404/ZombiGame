@@ -225,6 +225,7 @@ public class ZombieGameSystem {
 		}
 
 		human.potion(human);
+		potionCount --;
 		System.out.printf("포션 %d개 남았다.\n", potionCount);
 	}
 
