@@ -159,6 +159,8 @@ public class ZombieGameSystem {
 	}
 
 	private boolean attack(Unit unit) {
+		boolean isAttack = true;
+
 		human.attack(unit);
 
 		if (unit.hp < 0) {
@@ -175,6 +177,14 @@ public class ZombieGameSystem {
 
 		System.out.println(human);
 
+		isAttack = humanDie();
+
+		isAttack = zombieDie(unit);
+
+		return true;
+	}
+
+	private boolean humanDie() {
 		if (human.hp == 0) {
 			System.out.println("길동이가 죽었다!\n게임 종료!");
 
@@ -182,11 +192,15 @@ public class ZombieGameSystem {
 
 			return false;
 		}
+		return true;
+	}
+
+	private boolean zombieDie(Unit unit) {
 		if (unit.hp == 0) {
 			zombieCount++;
 
 			System.out.printf("길동이가 %s를 죽였다!\n", unit.name);
-			System.out.println("다음에 만날 좀비가 성장합니다!");
+			System.out.println("다음에 만날 좀비가 강력해집니다!");
 
 			if (unit instanceof Normal) {
 				Normal target = (Normal) unit;
@@ -201,7 +215,6 @@ public class ZombieGameSystem {
 
 			return false;
 		}
-
 		return true;
 	}
 
