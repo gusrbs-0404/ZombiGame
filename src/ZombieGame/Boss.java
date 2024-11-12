@@ -1,6 +1,6 @@
 package ZombieGame;
 
-public class Boss extends Unit {
+public class Boss extends Unit implements Zombie{
 
 	Boss() {
 		super("보스 좀비", 300);
@@ -15,5 +15,13 @@ public class Boss extends Unit {
 		unit.hp -= attack;
 		System.out.println("쿼어어ㅓ어어!!!!!!");
 	}
+
+	@Override
+	public void upgrade(Unit unit) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 
 }

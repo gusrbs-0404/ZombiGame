@@ -1,6 +1,6 @@
 package ZombieGame;
 
-public class Normal extends Unit {
+public class Normal extends Unit implements Zombie{
 
 	Normal() {
 		super("일반좀비", 100);
@@ -15,6 +15,12 @@ public class Normal extends Unit {
 		unit.hp -= attack;
 
 		System.out.println("와그작!!");
+	}
+
+	@Override
+	public void upgrade(Unit unit) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
