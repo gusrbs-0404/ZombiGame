@@ -87,7 +87,14 @@ public class ZombieGameSystem {
 		} else if (actionNumber == 5) {
 			potionCount++;
 			System.out.printf("포션을 얻었다!!!\n총 포션 개수 : %d\n", potionCount);
+		} else if (actionNumber == 6) {
+			System.out.println("함정에 걸렸다!");
+			trap();
 		}
+	}
+
+	private void trap() {
+
 	}
 
 	private void fighting() {
@@ -148,8 +155,8 @@ public class ZombieGameSystem {
 	}
 
 	private int actionRandomNumber() {
-		int ranNum = ran.nextInt(5) + 1; // 1 2 3 4 5
-											// 1~3 이동 | 4 좀비 | 5 포션
+		int ranNum = ran.nextInt(6) + 1; // 1 2 3 4 5 6
+											// 1~3 이동 | 4 좀비 | 5 포션 | 함정
 
 		return ranNum;
 	}
