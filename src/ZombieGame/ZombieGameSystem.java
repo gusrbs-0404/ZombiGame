@@ -109,7 +109,7 @@ public class ZombieGameSystem {
 		while (isFighting) {
 			System.out.println("1.공격한다.");
 			System.out.println("2.포션먹는다.");
-			System.out.println("3.도망간다(hp-50)");
+			System.out.println("3.도망간다(hp-30)");
 
 			int select = inputNumber("메뉴 선택");
 
@@ -118,7 +118,7 @@ public class ZombieGameSystem {
 			} else if (select == POTION) {
 				potion();
 			} else if (select == RUNAWAY) {
-				runaway();
+				isFighting = runaway();
 			}
 
 		}
@@ -162,12 +162,21 @@ public class ZombieGameSystem {
 	}
 
 	private void potion() {
-		// TODO Auto-generated method stub
-
+		human.potion(human);
 	}
 
-	private void runaway() {
-		// TODO Auto-generated method stub
+	private boolean runaway() {
+		if (human.hp > 30) {
+			human.hp -= 30;
+
+			System.out.println("무사히 도망쳤다!!");
+			System.out.println(human);
+
+			return false;
+		} else {
+			System.out.println("hp가 부족해서 도망칠 수 없다!");
+			return true;
+		}
 
 	}
 
