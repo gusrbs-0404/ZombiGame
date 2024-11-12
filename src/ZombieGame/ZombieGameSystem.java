@@ -177,14 +177,12 @@ public class ZombieGameSystem {
 
 		System.out.println(human);
 
-		isAttack = humanDie();
+		isAttack = die(unit);
 
-		isAttack = zombieDie(unit);
-
-		return true;
+		return isAttack;
 	}
 
-	private boolean humanDie() {
+	private boolean die(Unit unit) {
 		if (human.hp == 0) {
 			System.out.println("길동이가 죽었다!\n게임 종료!");
 
@@ -192,10 +190,7 @@ public class ZombieGameSystem {
 
 			return false;
 		}
-		return true;
-	}
 
-	private boolean zombieDie(Unit unit) {
 		if (unit.hp == 0) {
 			zombieCount++;
 
@@ -230,6 +225,7 @@ public class ZombieGameSystem {
 		}
 
 		human.potion(human);
+		System.out.printf("포션 %d개 남았다.\n", potionCount);
 	}
 
 	private boolean runaway() {
