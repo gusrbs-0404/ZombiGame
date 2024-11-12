@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class ZombieGameSystem {
 	private final int MOVING = 1;
-	private final int EXIT = 2;
+	private final int POTION = 2;
+	private final int EXIT = 3;
 
 	private final int ATTACK = 1;
-	private final int POTION = 2;
 	private final int RUNAWAY = 3;
 
 	private static Scanner scan = new Scanner(System.in);
@@ -60,7 +60,8 @@ public class ZombieGameSystem {
 
 	private void menu() {
 		System.out.println("1.이동하기");
-		System.out.println("2.종료하기");
+		System.out.println("2.포션먹기");
+		System.out.println("3.종료하기");
 		int select = inputNumber("메뉴 선택");
 
 		if (select < 1 || select > 2) {
@@ -71,6 +72,8 @@ public class ZombieGameSystem {
 		if (select == MOVING) {
 			human.moving(human);
 			actionMenu();
+		} else if (select == POTION) {
+			human.potion(human);
 		} else if (select == EXIT) {
 			System.out.println("좀비게임 종료 합니다!");
 			isrun = false;
