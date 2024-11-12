@@ -1,6 +1,6 @@
 package ZombieGame;
 
-public class Boss extends Unit implements Upgrade, Zombie {
+public class Boss extends Unit implements Upgrade {
 
 	Boss() {
 		super("보스 좀비", (300 + ZombieGameSystem.bossUpgradeHp));

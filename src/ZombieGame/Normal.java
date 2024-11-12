@@ -1,6 +1,6 @@
 package ZombieGame;
 
-public class Normal extends Unit implements Upgrade, Zombie {
+public class Normal extends Unit implements Upgrade {
 
 	Normal() {
 		super("일반좀비", (100 + ZombieGameSystem.normalUpgradeHp));
