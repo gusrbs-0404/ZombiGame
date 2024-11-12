@@ -23,8 +23,8 @@ public class Boss extends Unit implements Upgrade, Zombie {
 
 			String masg = String.format("%s의 [최대 체력 : 100 | 공격력 : 20] 증가 합니다!", name);
 			System.out.println(masg);
-			ZombieGameSystem.bossUpgradeHp += 100;
-			ZombieGameSystem.bossUpgradeAttack += 20;
+			ZombieGameSystem.bossUpgradeHp += 300;
+			ZombieGameSystem.bossUpgradeAttack += 50;
 		}
 
 	}
