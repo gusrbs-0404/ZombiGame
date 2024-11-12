@@ -13,6 +13,13 @@ public class Human extends Unit implements Potion, Moving, Upgrade {
 	@Override
 	public void attack(Unit unit) {
 		int attack = ZombieGameSystem.ranAttack() + attackUpgrade;
+
+		if (critical() == critical) {
+			System.out.println("크리티컬!!!");
+
+			attack += 20;
+		}
+
 		String masg = String.format("%s가 %s에게 %d만큼 공격했다!!!!", name, unit.name, attack);
 		System.out.println(masg);
 
@@ -24,10 +31,10 @@ public class Human extends Unit implements Potion, Moving, Upgrade {
 	@Override
 	public int critical() {
 		int probability = ZombieGameSystem.probability();
-		
+
 		return probability;
 	}
-	
+
 	@Override
 	public void potion(Human human) {
 

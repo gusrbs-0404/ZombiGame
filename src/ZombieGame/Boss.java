@@ -9,6 +9,13 @@ public class Boss extends Unit implements Upgrade, Zombie {
 	@Override
 	public void attack(Unit unit) {
 		int attack = ZombieGameSystem.ranAttack() + ZombieGameSystem.bossUpgradeAttack;
+
+		if (critical() == critical) {
+			System.out.println("크리티컬!!!");
+
+			attack += 20;
+		}
+
 		String masg = String.format("%s가 %s에게 %d만큼 공격했다!!!!", name, unit.name, attack);
 		System.out.println(masg);
 
