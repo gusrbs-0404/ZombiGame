@@ -27,15 +27,12 @@ public class Human extends Unit implements Potion, Moving, Upgrade {
 		int ranHp = ZombieGameSystem.ranHp();
 
 		System.out.printf("포션을 먹었다! %d만큼 획복한다!!\n", ranHp);
-		while (ranHp >= 0 && human.hp <= human.MAX_HP) {
-			System.out.println(human + "|| [HP] 회복중");
+		while (ranHp > 0 && human.hp < human.MAX_HP) {
 			human.hp++;
 			ranHp--;
-			try {
-				Thread.sleep(300);
-			} catch (Exception e) {
-			}
 		}
+
+		System.out.println(human + " | [HP] 완료!");
 
 		System.out.println("<<< 회복 완료 >>> ");
 	}
