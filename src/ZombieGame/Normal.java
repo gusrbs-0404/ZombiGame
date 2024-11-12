@@ -19,8 +19,14 @@ public class Normal extends Unit implements Upgrade, Zombie {
 	
 	@Override
 	public boolean critical() {
-		// TODO Auto-generated method stub
+		
 		return false;
+	}
+	
+	@Override
+	public int probability() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
