@@ -1,6 +1,6 @@
 package ZombieGame;
 
-public class Human extends Unit implements Attack, Potion, Moving {
+public class Human extends Unit implements Potion, Moving {
 
 	private int totalMoving = 0;
 
