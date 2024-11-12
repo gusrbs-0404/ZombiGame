@@ -16,11 +16,12 @@ public class Normal extends Unit implements Upgrade, Zombie {
 
 		System.out.println("와그작!!");
 	}
-	
+
 	@Override
-	public boolean critical() {
-		
-		return false;
+	public int critical() {
+		int probability = ZombieGameSystem.probability();
+
+		return probability;
 	}
 
 	@Override

@@ -17,11 +17,12 @@ public class Boss extends Unit implements Upgrade, Zombie {
 	}
 
 	@Override
-	public boolean critical() {
-		// TODO Auto-generated method stub
-		return false;
+	public int critical() {
+		int probability = ZombieGameSystem.probability();
+
+		return probability;
 	}
-	
+
 	@Override
 	public void upgrade(Unit unit) {
 		if (unit instanceof Boss) {
