@@ -200,10 +200,6 @@ public class ZombieGameSystem {
 
 	}
 
-	private void joinBoss() {
-		boss = new Boss();
-	}
-
 	private int actionRandomNumber() {
 		int ranNum = ran.nextInt(6) + 1; // 1 2 3 4 5 6
 											// 1~3 이동 | 4 좀비 | 5 포션 | 함정
