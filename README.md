@@ -18,5 +18,6 @@
 ![좀비찐 최종 drawio](https://github.com/user-attachments/assets/9dd7da27-6bc9-45b2-9b36-59c5c12bf185)
 
 
-> ### Demo --- 이거 다시하기 콘솔창만
- ![콘솔창 녹화](https://github.com/user-attachments/assets/5ee5fa37-487b-44cc-a682-a89bff61ebbd)
+> ### Demo --- 
+![콘솔창 녹화](https://github.com/user-attachments/assets/2ff60f99-5c8e-4d25-8236-eb0017952359)
+
