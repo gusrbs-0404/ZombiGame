@@ -26,7 +26,14 @@ public class ZombieGameSystem {
 	private boolean isrun = true;
 
 	private int potionCount = 3;
+
 	public static int zombieCount = 0;
+
+	public static int normalUpgradeHp = 0;
+	public static int normalUpgradeAttack = 0;
+
+	public static int bossUpgradeHp = 0;
+	public static int bossUpgradeAttack = 0;
 
 	private void ZombieGameSystem() {
 
@@ -92,17 +99,17 @@ public class ZombieGameSystem {
 
 	private void actionMenu() {
 		int actionNumber = actionRandomNumber();
+
 		if (actionNumber >= MOVING && actionNumber <= JOINGMOVING) {
 			System.out.println("아무일도 없었다.");
 		} else if (actionNumber == FIGHTING) {
-			if (zombieCount % 3 == 0) {
+			if (zombieCount % 3 == 0 && zombieCount != 0) {
 				boss = new Boss();
 				fighting(boss);
 				zombieCount = 0;
 			} else {
 				normal = new Normal();
 				fighting(normal);
-				zombieCount++;
 			}
 		} else if (actionNumber == GETPOTION) {
 			plusPotion();
@@ -171,7 +178,18 @@ public class ZombieGameSystem {
 			return false;
 		}
 		if (unit.hp == 0) {
+			zombieCount++;
+
 			System.out.printf("길동이가 %s를 죽였다!\n", unit.name);
+			System.out.println("다음에 만날 좀비가 성장합니다!");
+
+			if (unit instanceof Normal) {
+				Normal target = (Normal) unit;
+				target.upgrade(unit);
+			} else if (unit instanceof Boss) {
+				Boss target = (Boss) unit;
+				target.upgrade(unit);
+			}
 
 			potionCount++;
 			System.out.printf("포션을 1개를 얻었다!!!\n총 포션 개수 : %d\n", potionCount);

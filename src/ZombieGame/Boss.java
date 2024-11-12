@@ -1,14 +1,14 @@
 package ZombieGame;
 
-public class Boss extends Unit implements Zombie{
+public class Boss extends Unit implements Upgrade {
 
 	Boss() {
-		super("보스 좀비", 300);
+		super("보스 좀비", (300 + ZombieGameSystem.bossUpgradeHp));
 	}
 
 	@Override
 	public void attack(Unit unit) {
-		int attack = ZombieGameSystem.ranAttack();
+		int attack = ZombieGameSystem.ranAttack() + ZombieGameSystem.bossUpgradeAttack;
 		String masg = String.format("%s가 %s에게 %d만큼 공격했다!!!!", name, unit.name, attack);
 		System.out.println(masg);
 
@@ -18,10 +18,15 @@ public class Boss extends Unit implements Zombie{
 
 	@Override
 	public void upgrade(Unit unit) {
-		// TODO Auto-generated method stub
-		
+		if (unit instanceof Boss) {
+			Boss target = (Boss) unit;
+
+			String masg = String.format("%s의 [최대 체력 : 100 | 공격력 : 20] 증가 합니다!", name);
+			System.out.println(masg);
+			ZombieGameSystem.bossUpgradeHp += 100;
+			ZombieGameSystem.bossUpgradeAttack += 20;
+		}
+
 	}
-	
-	
 
 }
