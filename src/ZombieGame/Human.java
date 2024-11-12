@@ -28,12 +28,6 @@ public class Human extends Unit implements Potion, Moving, Upgrade {
 	}
 	
 	@Override
-	public int probability() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	@Override
 	public void potion(Human human) {
 
 		int ranHp = ZombieGameSystem.ranHp();

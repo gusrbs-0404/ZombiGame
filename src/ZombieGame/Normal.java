@@ -22,12 +22,6 @@ public class Normal extends Unit implements Upgrade, Zombie {
 		
 		return false;
 	}
-	
-	@Override
-	public int probability() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public void upgrade(Unit unit) {
