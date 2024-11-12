@@ -34,7 +34,7 @@ public class ZombieGameSystem {
 	}
 
 	public static int ranHp() {
-		int ranHp = ran.nextInt(human.MAX_HP / 3);
+		int ranHp = ran.nextInt(human.MAX_HP / 3) + 10;
 
 		return ranHp;
 	}
@@ -89,7 +89,15 @@ public class ZombieGameSystem {
 		if (actionNumber >= 1 && actionNumber <= 3) {
 			System.out.println("아무일도 없었다.");
 		} else if (actionNumber == 4) {
-			fighting();
+			if (zombieCount == 3) {
+				boss = new Boss();
+				fighting(boss);
+				zombieCount = 0;
+			} else {
+				normal = new Normal();
+				fighting(normal);
+				zombieCount++;
+			}
 		} else if (actionNumber == 5) {
 			plusPotion();
 		} else if (actionNumber == 6) {
@@ -110,9 +118,9 @@ public class ZombieGameSystem {
 		System.out.println(human);
 	}
 
-	private void fighting() {
-		System.out.println("좀비를 만났다!!");
-		normal = new Normal();
+	private void fighting(Unit unit) {
+		System.out.printf("%s를 만났다!!\n", unit.name);
+
 		boolean isFighting = true;
 		while (isFighting) {
 			System.out.println("1.공격한다.");
@@ -122,7 +130,7 @@ public class ZombieGameSystem {
 			int select = inputNumber("메뉴 선택");
 
 			if (select == ATTACK) {
-				isFighting = attack();
+				isFighting = attack(unit);
 			} else if (select == POTION) {
 				potion();
 			} else if (select == RUNAWAY) {
@@ -130,20 +138,18 @@ public class ZombieGameSystem {
 			}
 
 		}
-		zombieCount++;
-		System.out.println(zombieCount);
 	}
 
-	private boolean attack() {
-		human.attack(normal);
+	private boolean attack(Unit unit) {
+		human.attack(unit);
 
 		if (normal.hp < 0) {
 			normal.hp = 0;
 		}
 
-		System.out.println(normal);
+		System.out.println(unit);
 
-		normal.attack(human);
+		unit.attack(human);
 
 		if (human.hp < 0) {
 			human.hp = 0;
@@ -195,7 +201,7 @@ public class ZombieGameSystem {
 	}
 
 	private void joinBoss() {
-
+		boss = new Boss();
 	}
 
 	private int actionRandomNumber() {
