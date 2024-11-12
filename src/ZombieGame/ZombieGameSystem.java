@@ -26,7 +26,7 @@ public class ZombieGameSystem {
 	private boolean isrun = true;
 
 	private int potionCount = 3;
-	private int zombieCount = 0;
+	public static int zombieCount = 0;
 
 	private void ZombieGameSystem() {
 
@@ -95,7 +95,7 @@ public class ZombieGameSystem {
 		if (actionNumber >= MOVING && actionNumber <= JOINGMOVING) {
 			System.out.println("아무일도 없었다.");
 		} else if (actionNumber == FIGHTING) {
-			if (zombieCount == 3) {
+			if (zombieCount % 3 == 0) {
 				boss = new Boss();
 				fighting(boss);
 				zombieCount = 0;
