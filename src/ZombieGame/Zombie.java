@@ -1,6 +1,6 @@
 package ZombieGame;
 
 interface Zombie {
-	
+
 }
 
