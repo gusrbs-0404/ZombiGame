@@ -1,6 +1,6 @@
 package ZombieGame;
 
-public class Human extends Unit implements Potion, Moving {
+public class Human extends Unit implements Potion, Moving, Upgrade {
 
 	private int totalMoving = 0;
 	private int upgradeCount = 1;
@@ -49,16 +49,20 @@ public class Human extends Unit implements Potion, Moving {
 		System.out.println(masg);
 	}
 
-	public void upgrade(Human human) {
-		if (totalMoving / 10 == upgradeCount) {
-			System.out.println(totalMoving / 10);
-			String masg = String.format("%s의 [체력 : 10 | 공격력 : 5] 증가 합니다!", name);
-			System.out.println(masg);
+	@Override
+	public void upgrade(Unit unit) {
+		if (unit instanceof Human) {
+			Human target = (Human) unit;
+			if (totalMoving / 10 == upgradeCount) {
+				System.out.println(totalMoving / 10);
+				String masg = String.format("%s의 [최대 체력 : 10 | 공격력 : 5] 증가 합니다!", name);
+				System.out.println(masg);
 
-			human.MAX_HP += 10;
-			upgradeCount++;
-			attackUpgrade += 5;
-			System.out.println(human);
+				target.MAX_HP += 10;
+				upgradeCount++;
+				attackUpgrade += 5;
+				System.out.println(target);
+			}
 		}
 	}
 
