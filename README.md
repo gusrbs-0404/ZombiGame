@@ -14,7 +14,8 @@
 
 
 > ### **Class Diagram**
-![좀비찐 최종 drawio](https://github.com/user-attachments/assets/9dd7da27-6bc9-45b2-9b36-59c5c12bf185)
+![좀비찐 최종 drawio](https://github.com/user-attachments/assets/96031929-700a-4d38-9aba-a566d68082f7)
+
 
 
 > ### **Demo**
